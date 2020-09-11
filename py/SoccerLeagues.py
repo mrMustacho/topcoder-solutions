@@ -4,20 +4,19 @@ Created on Mon Mar 25 15:01:38 2019
 
 @author: Alejandro
 """
+
+## Test Cases
 test1 = ["-WW",
         "W-W",
         "WW-"]
-
 test2 = ["-DD",
         "L-L",
         "WD-"]
-
 test3 = ["-DWWD",
         "L-WLL",
         "DD-WD",
         "DDL-L",
         "DDLL-"]
-
 test4 = ["-LWWLWDLDWWWWWWDDWDW",
         "D-WWLDDWDWDLWDDWLWDD",
         "LL-DLDWDLDLDWWWLWDDW",
@@ -40,18 +39,18 @@ test4 = ["-LWWLWDLDWWWWWWDDWDW",
         "LLWDLWDWDWLLWWDDWWL-"]
 
 def points(matches):
-    n = len(matches)
-    plist = [0 for i in range(n)]
-    for local in range(n):
-        for visit in range(n):
+    numberOfMatches = len(matches)
+    pointsList = [0 for i in range(numberOfMatches)]
+    for local in range(numberOfMatches):
+        for visit in range(numberOfMatches):
             if matches[local][visit] == 'W':
-                plist[local] += 3
+                pointsList[local] += 3
             if matches[local][visit] == 'D':
-                plist[local] += 1
-                plist[visit] += 1
+                pointsList[local] += 1
+                pointsList[visit] += 1
             if matches[local][visit] == 'L':
-                plist[visit] += 3
-    return plist
+                pointsList[visit] += 3
+    return pointsList
 
 '''
 ## Prompt
@@ -64,8 +63,6 @@ while True:
         break
     matches.append(buffer)
 '''
-
-
 
 print(points(test1))
 # Returns: {6, 6, 6 }
